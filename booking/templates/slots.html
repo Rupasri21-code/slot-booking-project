@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Slot Booking</title>
+</head>
+<body>
+
+<h2>Available Slots</h2>
+
+<ul>
+{% for slot in slots %}
+<li>
+{{ slot.time }}
+
+{% if slot.is_booked %}
+(Booked)
+{% else %}
+<a href="/book/{{slot.id}}">Book Slot</a>
+{% endif %}
+
+</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
