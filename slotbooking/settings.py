@@ -77,14 +77,10 @@ WSGI_APPLICATION = 'slotbooking.wsgi.application'
 import os
 
 DATABASES = {
- 'default': {
-   'ENGINE': 'django.db.backends.mysql',
-   'NAME': os.environ.get('slotbooking_db'),
-   'USER': os.environ.get('Root'),
-   'PASSWORD': os.environ.get('Rupa@2784'),
-   'HOST': os.environ.get('localhost'),
-   'PORT': os.environ.get('DB_PORT', '3306'),
- }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # Password validation
