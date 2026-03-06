@@ -73,17 +73,19 @@ WSGI_APPLICATION = 'slotbooking.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME':  BASE_DIR / 'slotbooking_db',
-        'USER': 'root',
-        'PASSWORD': 'Rupa@2784',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
 
+import os
+
+DATABASES = {
+ 'default': {
+   'ENGINE': 'django.db.backends.mysql',
+   'NAME': os.environ.get('slotbooking_db'),
+   'USER': os.environ.get('Root'),
+   'PASSWORD': os.environ.get('Rupa@2784'),
+   'HOST': os.environ.get('localhost'),
+   'PORT': os.environ.get('DB_PORT', '3306'),
+ }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
