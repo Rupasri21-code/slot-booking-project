@@ -1,27 +1,32 @@
-/* Basic reset & font */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Roboto', sans-serif; background:#f5f5f5; color:#333; }
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f9;
+    color: #333;
+}
 
-/* Header */
-header { background:#4CAF50; color:white; text-align:center; padding:25px 0; font-size:28px; }
+h1 {
+    color: #007bff;
+}
 
-/* Container */
-.container { max-width:900px; margin:30px auto; padding:10px; }
+ul {
+    list-style: none;
+    padding: 0;
+}
 
-/* Slots grid */
-.slots { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; }
-.slot { background:#e0e0e0; padding:25px 15px; text-align:center; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition:0.3s; }
-.slot:hover { transform:translateY(-5px); box-shadow:0 8px 12px rgba(0,0,0,0.2); }
+li {
+    margin: 10px 0;
+}
 
-/* Booked slot */
-.slot.booked { background:#FF5722; color:white; }
+a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
 
-/* Book/Unbook link */
-.book-link, .toggle-link { display:inline-block; margin-top:10px; padding:10px 20px; border-radius:6px; background:#FF5722; color:white; text-decoration:none; font-weight:bold; transition:0.3s; }
-.toggle-link:hover { background:#e64a19; }
-
-/* Footer */
-footer { text-align:center; margin-top:40px; padding:15px 0; color:#555; }
-
-/* Mobile responsive */
-@media (max-width:768px){ .slots { grid-template-columns:1fr; } }
+a:hover {
+    background-color: #0056b3;
+}

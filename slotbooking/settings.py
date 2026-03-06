@@ -135,3 +135,37 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# settings.py
+
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+
+# Directory where collectstatic will put files for production
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Directory where your source static files live (your CSS, JS, images)
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
+# Use WhiteNoise to serve static files efficiently in production
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Middleware setup: WhiteNoise middleware should be placed right after SecurityMiddleware
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # ← this is required
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'       # Where collectstatic will put files
+STATICFILES_DIRS = [BASE_DIR / 'static']      # Where your source static files live
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
