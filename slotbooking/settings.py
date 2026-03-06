@@ -75,8 +75,8 @@ WSGI_APPLICATION = 'slotbooking.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'slotbooking_db',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME':  BASE_DIR / 'db.sqlite3',
         'USER': 'root',
         'PASSWORD': 'Rupa@2784',
         'HOST': 'localhost',
@@ -128,6 +128,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Allow Render to serve the site
 ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']  # or your Render URL
+
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
