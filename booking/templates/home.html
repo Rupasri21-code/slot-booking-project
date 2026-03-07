@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Slot Booking</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f2f2f2;
+text-align:center;
+}
+
+h1{
+color:#333;
+}
+
+.slot{
+background:white;
+padding:20px;
+margin:15px auto;
+width:300px;
+border-radius:10px;
+box-shadow:0px 0px 10px gray;
+}
+
+button{
+background:#28a745;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#218838;
+}
+
+.booked{
+color:red;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Slot Booking System</h1>
+
+{% for slot in slots %}
+
+<div class="slot">
+
+<h3>{{ slot.name }}</h3>
+
+<p>
+<b>Time:</b> {{ slot.start_time|time:"H:i" }} - {{ slot.end_time|time:"H:i" }}
+</p>
+
+{% if slot.is_booked %}
+
+<p class="booked">Status: Booked</p>
+
+<a href="/unbook/{{slot.id}}/">
+<button style="background:red;">Unbook</button>
+</a>
+
+{% else %}
+
+<p style="color:green;"><b>Status: Available</b></p>
+
+<a href="/book/{{slot.id}}/">
+<button>Book Slot</button>
+</a>
+
+{% endif %}
+
+</div>
+
+{% endfor %}
+</body>
+</html>

@@ -119,44 +119,32 @@ USE_TZ = True
 
 
 import os
-
-# Static files configuration
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Allow Render to serve the site
-ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['*']  # or your Render URL
-
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# settings.py
-
-import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Static files (CSS, JavaScript, Images)
+# Allow Render domain
+ALLOWED_HOSTS = ['*']
+
+# Static files
 STATIC_URL = '/static/'
 
-# Directory where collectstatic will put files for production
+# Where collectstatic will collect files for production
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Directory where your source static files live (your CSS, JS, images)
-STATICFILES_DIRS = [BASE_DIR / 'static']
+# Where your CSS/JS files are stored in project
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
-# Use WhiteNoise to serve static files efficiently in production
+# WhiteNoise static storage
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# Middleware setup: WhiteNoise middleware should be placed right after SecurityMiddleware
+
+
+# Middleware configuration
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # ← this is required
+    'whitenoise.middleware.WhiteNoiseMiddleware',   # required for Render
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -165,7 +153,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'       # Where collectstatic will put files
-STATICFILES_DIRS = [BASE_DIR / 'static']      # Where your source static files live
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Default primary key field type
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

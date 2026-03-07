@@ -1,18 +1,18 @@
-from django.shortcuts import render
-from django.http import JsonResponse
+from django.shortcuts import render, redirect
 from .models import Slot
 
-# Display all slots
-def view_slots(request):
+def home(request):
     slots = Slot.objects.all()
-    return render(request, 'slots.html', {'slots': slots})
+    return render(request, 'home.html', {'slots': slots})
 
-# Toggle booking/unbooking via AJAX
-def toggle_slot_ajax(request, id):
-    try:
-        slot = Slot.objects.get(id=id)
-        slot.is_booked = not slot.is_booked
-        slot.save()
-        return JsonResponse({'is_booked': slot.is_booked})
-    except Slot.DoesNotExist:
-        return JsonResponse({'error': 'Slot not found'}, status=404)
+def book_slot(request, slot_id):
+    slot = Slot.objects.get(id=slot_id)
+    slot.is_booked = True
+    slot.save()
+    return redirect('home')
+
+def unbook_slot(request, slot_id):
+    slot = Slot.objects.get(id=slot_id)
+    slot.is_booked = False
+    slot.save()
+    return redirect('home')

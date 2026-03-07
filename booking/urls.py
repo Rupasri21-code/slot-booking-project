@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.view_slots, name='view_slots'),
-    path('toggle_ajax/<int:id>/', views.toggle_slot_ajax, name='toggle_slot_ajax'),
+    path('', views.home, name='home'),
+    path('book/<int:slot_id>/', views.book_slot, name='book'),
+    path('unbook/<int:slot_id>/', views.unbook_slot, name='unbook'),
 ]

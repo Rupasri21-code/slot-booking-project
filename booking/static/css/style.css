@@ -1,68 +1,101 @@
-/* Page Background */
 body{
     font-family: Arial, sans-serif;
-    background-color: #e6e6e6;
-    margin: 0;
-    padding: 0;
+    background:#f2f2f2;
+    margin:0;
 }
 
 /* Header */
-header{
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 30px;
-    font-size: 40px;
-    font-weight: bold;
+
+.header{
+    background:linear-gradient(90deg,#4CAF50,#2E7D32);
+    color:white;
+    text-align:center;
+    padding:35px;
+}
+
+.header h1{
+    margin:0;
+    font-size:40px;
 }
 
 /* Container */
+
 .container{
-    width: 80%;
-    margin: auto;
-    margin-top: 40px;
+    width:80%;
+    margin:auto;
+    margin-top:40px;
 }
 
-/* Title */
 h2{
-    color: #333;
+    margin-bottom:20px;
 }
 
-/* Slot Cards */
+/* Slots grid */
+
+.slots{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+}
+
+/* Slot Card */
+
 .slot-card{
-    background: #d9d9d9;
-    padding: 25px;
-    border-radius: 12px;
-    width: 250px;
-    display: inline-block;
-    margin: 20px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    width:220px;
+    padding:20px;
+    border-radius:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:18px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    transition:transform 0.2s;
 }
 
-/* Book Button */
+.slot-card:hover{
+    transform:scale(1.05);
+}
+
+/* Available slot */
+
+.available{
+    background:#E8F5E9;
+}
+
+/* Booked slot */
+
+.booked{
+    background:#FFEBEE;
+}
+
+/* Buttons */
+
 .book-btn{
-    background: #ff5722;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
+    background:#4CAF50;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+    cursor:pointer;
 }
 
-/* Unbook Button */
+.book-btn:hover{
+    background:#388E3C;
+}
+
 .unbook-btn{
-    background: #ff5722;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
+    background:#f44336;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
 }
 
 /* Footer */
-footer{
-    text-align: center;
-    margin-top: 50px;
-    color: #444;
+
+.footer{
+    text-align:center;
+    margin-top:80px;
+    padding:20px;
+    background:#ddd;
 }
